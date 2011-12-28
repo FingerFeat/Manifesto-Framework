@@ -92,22 +92,13 @@
 	It is structured according to SMACSS, so please read about this architecture first at
 	http://smacss.com/. With this in mind you only need to know the following: 
 	
-		I.	Imagine that you are actually writing the Chapters of what defines your web project.
-			This is why every .less file you will work within is found in the Chapters folder.
-			So if you are ready to define the project's overall Typographic style, you would open
-			typography.less and write that Chapter.
-			
-		II. Additional, extra, "plugin" .less files are called Leaves and are found in the Leaves
+		I. Additional, extra, "plugin" .less files are called Leaves and are found in the Leaves
 			folder. Leaves are elements you load in AFTER you've defined all the base stylings.
 			For me, I create various Leaves for very custom form element designs and the likes.
 			So Leaves can easily be used to create packs of stylings that gives your project a
 			unique twist. Oh, and share your Leaves with others, that would be awesome.
-			
-		III. All Chapters and Leaves are loaded in and managed in the "content.less" file. To
-			 keep it organized, import your Leaves after your Chapters. This also reduces the
-			 risk of overlapping styles.
 			 
-		IV.  Have fun and stay awesome. Keep being visionaries of the future web. It may be
+		II.  Have fun and stay awesome. Keep being visionaries of the future web. It may be
 			 Manifesto, it may be something completely else. Just as long as we push forward 
 			 and never stop dreaming!
 			 

@@ -1,0 +1,124 @@
+/*=============================================================================
+[Coyier's Pure CSS Ribbons]
+=============================================================================*/		  
+	  .ribbonBox(@col: 24, @pad1 : 20, @pad2 : 20) {
+		position:relative;
+			z-index:1;
+				.boxType(border-box);
+					.p(20,20);
+						.column(@col);
+							
+	}
+	  
+	  
+	  	.ribbonHeader(@bgcolor : white, @fontColor : white, @fontSize : 38) {
+		position:relative;
+			.p(10,30);
+				margin:0 -30px 20px;
+					font-size: @fontSize * 1px;
+						line-height:32px;
+							font-weight:bold;
+								text-align:center;
+							color:@fontColor;
+						background-color: @bgcolor;
+					.ts(.04,.04,0, .25);
+				.bs(0,2,2, .20);
+			zoom:1;
+}
+
+.ribbonWraps(@color : white) {
+    content:"";
+		position:absolute;
+			z-index:-1;
+				top:100%;
+					left:0;
+				border-width: 0 10px 10px 0;
+			border-style: solid;
+		border-color: transparent @color;
+}
+
+
+
+
+.afterRibbonWraps() {
+    left:auto;
+    right:0;
+    border-width:0 0 10px 10px;
+}
+
+
+/* COPY THIS OVER 
+	
+	@ribbonColor : #CC333F;
+		@ribbonWrapsColor : darken(@ribbonColor, 25%);   
+	      
+	div.ribbon {
+		.ribbonBox(6);
+	}
+	
+	.ribbon > h1 {
+		.ribbonHeader(@ribbonColor, gold, 32);
+	}
+
+	.ribbon > h1:before, .ribbon > h1:after {
+		.ribbonWraps(@ribbonWrapsColor);
+	}
+
+	.ribbon > h1:after {
+		.afterRibbonWraps();
+	}
+*/	  
+	  
+	  
+/*=============================================================================
+[Speech Bubble]
+=============================================================================*/		  
+	  
+	.speechBubble(@colorOne : #FFF, @colorTwo: whitesmoke, @topPositionX: 50, @rad : 10){
+		position: relative;
+			padding: 15px;
+					background: #075698;	
+						.gra2(@colorOne, @colorTwo);
+							.rad(@rad,@rad);
+							
+							&:after { 
+								content: "";
+									position: absolute;
+										bottom: -20px;
+											left:  @topPositionX * 1px;
+												border-width: 20px 0 0 20px;
+													border-style: solid;
+														border-color: @colorTwo transparent;
+															display: block;
+																width: 0;
+							}			
+	}
+	  
+
+/*=============================================================================
+[Folded Corner]
+=============================================================================*/	  
+
+	.foldedCorner(@bgColor: #97C02F, @borderColor : #658E15) {
+		
+			  position:relative;
+				width:30%;
+					.boxType();
+						background:@bgColor;
+							overflow:hidden;
+			
+			&:before {
+				 content:"";
+				   position:absolute;
+					top:0;
+						right:0;
+							border-width:0 16px 16px 0;
+								border-style:solid;
+									border-color:#fff #fff @borderColor @borderColor;
+										background: @borderColor;
+											-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+												-moz-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+													box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+														display:block; width:0; /* Firefox 3.0 damage limitation */
+			}
+	}

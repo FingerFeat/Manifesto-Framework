@@ -1,0 +1,93 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Give me a title!</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<!-- Shortcut Icons -->	
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	
+	<!-- Load in LESS -->
+	<link rel="stylesheet" href="less/leaves/bootstrap.css"/>
+	<link rel="stylesheet/less" href="less/contents.less">
+	<script src="js/less.min.js"></script>
+	
+	<!-- Load in Google Font -->	
+	<link href='http://fonts.googleapis.com/css?family=Gentium+Basic' rel='stylesheet' >
+
+	<script src="js/modernizr.js"></script>
+	
+
+	
+</head>
+
+<body>
+
+	<header></header>
+		<section id="content"></section>
+	<footer></footer>
+
+
+<!--========================================
+	Required Scripts
+	========================================-->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+<!-- Change the activePage variable to the page you are currently working on. When going live (e.g. converting to say Wordpress) remember to delete this part, since you'll be using a release structure (e.g. a CMS or ASP.net etc., or basic linking) -->
+
+<script>
+	$(document).ready(function() {
+		var htmlPath = 'html/';
+		var pagesPath = 'pages/';
+		var html = '.html';
+		var activePage = 'frontpage';
+	
+			$('header').load(htmlPath + 'header' + html, function() { });
+			$('#content').load(pagesPath + activePage + html, function() { });
+			$('footer').load(htmlPath + 'footer' + html, function() { });
+	});
+</script>
+
+
+
+<!-- scripts concatenated and minified via ant build script-->
+<script src="js/plugins.js"></script>
+<script src="js/script.js"></script>
+<script src="js/libs/respond.min.js"></script>
+<!-- end scripts-->
+
+
+
+
+
+<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	<![endif]-->
+
+	<!--[if lt IE 9]>
+		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+		<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+	<![endif]-->
+
+</body>
+</html>

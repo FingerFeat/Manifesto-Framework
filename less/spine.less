@@ -1,0 +1,1200 @@
+/* =============================================================================
+   
+   Manifesto - The entire mumbojumbo, ready to rock.
+   
+   Curated by: Anders Schmidt Hansen
+   
+   ========================================================================== */
+   
+   
+/* =============================================================================
+   TABLE OF CONTENTS:
+   
+		1.0 - Grid.less by Tyler Tate
+		2.0 - Border Controls
+		3.0 - Border Radius Controls
+		4.0 - Resize Handle Control
+		5.0 - Box Shadow Control
+		6.0 - Text Shadow Control
+		7.0 - Gradient Controls
+		8.0 - Object Transform Controls
+		9.0 - Transition & Animation Controls
+		10.0 - Box Alignment Controls
+		11.0 - Box Model Controls
+		12.0 - Typography Controls
+		13.0 - Padding & Margin Controls
+		14.0 - Background Color Controls
+		15.0 - Image Load In Helper by someone I can't remember
+		16.0 - Multiple Columns Controls
+		17.0 - Sizing Controls
+		
+		EX.0 - Extra Controls
+   
+   ========================================================================== */
+   
+   
+   
+   
+   
+/* =============================================================================
+    1.0 - Grid.less by Tyler Tate feat. Nicolas Gallagher
+   ========================================================================== */
+   
+	// Defaults which you can freely override
+	@column-width: 60;
+	@gutter-width: 30; /* Added by Anders Schmidt Hansen, magic number to get 12 Columns = 960px Default Value : 30 */
+	@columns: 12;
+	
+	// Utility variable — you should never need to modify this
+	@_gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+
+	// Set @total-width to 100% for a fluid layout
+	@total-width: 100%;
+
+
+	//////////
+	// GRID //
+	//////////
+
+
+	body {
+		width: 100%;
+			/*.clearfix;  Seems to bug up Opera, do not uncomment until response from Gallagher*/ 
+	}
+
+	.row(@columns:@columns) {
+		display: inline-block;
+			width: @total-width*((@gutter-width + @_gridsystem-width)/@_gridsystem-width);
+				margin: 0 @total-width*(((@gutter-width*.5)/@_gridsystem-width)*-1);
+					.clearfix;
+	}
+	.column(@x,@columns:@columns) {
+		display: inline;
+			float: left;
+				width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width);
+	
+					/* margin: 0 @total-width*((@gutter-width*.5)/@_gridsystem-width); */
+					margin: 0 0; /* Added by Anders Schmidt Hansen, I can add my own margins, thank you. :P */
+	
+	}
+	.offset(@offset:1) {
+		margin-left: (@gutter-width+@column-width)*@offset + @total-width*((@gutter-width*.5)/@_gridsystem-width);
+	}
+
+	// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+		.clearfix() {
+			*zoom:1;
+
+	&:before,
+	&:after {
+		content:"";
+			display:table;
+	}
+	&:after {
+		clear:both;
+	}
+	}
+	
+	
+	
+	
+	
+/* =============================================================================
+    2.0 - Border Controls
+   ========================================================================== */	
+
+	.borders(
+		@borderSize : 1,
+		@borderType : solid,
+		@colorOne : black
+	
+	) {
+		@borderSizeValue : @borderSize * 1px;
+			border: @borderSizeValue @borderType @colorOne;
+	}
+
+	.borderWidth(@top : 1, @right: 1, @bottom: 1, @left: 1) {
+		@borderWidthValue : @top * 1px @right * 1px @bottom * 1px @left * 1px ;
+			border-width: @borderWidthValue;
+	}
+
+
+	.dblBorders(
+		@borderSize : 1,
+		@borderType : solid,
+		@colorOne : green,
+		@colorTwo : red
+	) {
+
+		@borderSizeValue : @borderSize * 1px;
+		
+		border: @borderSizeValue @borderType @colorOne;
+			-webkit-box-shadow: 0 0 0 @borderSizeValue @colorTwo;
+					box-shadow: 0 0 0 @borderSizeValue @colorTwo;
+					
+	}
+
+	.tplBorders( 
+		@borderSize : 1,
+		@borderType : solid,
+		@colorOne : green,
+		@colorTwo : red,
+		@colorThree : blue,
+		
+	) {
+		
+		@borderSizeValue : @borderSize * 1px;
+		border: @borderSizeValue @borderType @colorOne;
+			-webkit-box-shadow: 0 0 0 @borderSizeValue @colorTwo, 0 0 0 @borderSizeValue @colorThree;	
+				box-shadow: 0 0 0 @borderSizeValue @colorTwo, 0 0 0 @borderSizeValue @colorThree;
+				
+	}
+
+	
+	
+	
+
+/* =============================================================================
+    3.0 - Border Radius Controls
+   ========================================================================== */
+
+	.rad( @topLeftBottomRight: 0, @topRightBottomLeft: 0 ) {
+		
+		@val1 : @topLeftBottomRight * 1px;
+		@val2 : @topRightBottomLeft * 1px;
+		
+		border-radius: @val1 @val2;	
+	
+			
+				
+	}
+
+	.xrad( @tl: 0, @tr: 0, @bl : 0, @br : 0 ) {
+		
+		@val1 : @tl * 1px;
+		@val2 : @tr * 1px;
+		@val3 : @bl * 1px;
+		@val4 : @br * 1px;
+		
+		border-radius: @val1 @val2 @val3 @val4;
+		
+	}
+
+
+
+	
+	
+/* =============================================================================
+    4.0 - Resize Handle Control
+   ========================================================================== */
+
+	.hasResize(@overflow: auto, @resize: both) {
+		overflow: @overflow;
+			resize: @resize;
+	}
+
+	
+	
+	
+	
+/* =============================================================================
+    5.0 - Box Shadow Control
+   ========================================================================== */	
+ 	
+	.bs (@hr: 0, @vr: 0, @blur: 0, @spread: 0, @shadowOpacity: .25) {
+		  
+		  @shadow: rgba(0,0,0, @shadowOpacity);
+			@val: @hr * 1px @vr * 1px  @blur * 1px @spread * 1px @shadow;
+				
+		  box-shadow: @val;
+			-webkit-box-shadow: @val;
+					 
+		}
+		
+
+	.ibs (@hr: 0, @vr: 0, @blur: 0, @spread: 0, @shadowOpacity: .25 ) {
+		  @shadow: rgba(0,0,0, @shadowOpacity);
+			@val: @hr * 1px @vr * 1px @blur * 1px @spread * 1px @shadow;
+		  
+		  box-shadow:inset @val;
+			-webkit-box-shadow:inset @val;
+			
+
+	}	
+				
+   	.mpbs (
+	     @hr1: 0, 
+		 @vr1: 0, 
+		 @blur1: 0, 
+		 @spread1: 0, 
+		 @colorOne : transparent, 
+		 
+		 @hr2: 0, 
+		 @vr2: 0, 
+		 @blur2: 0, 
+		 @spread2: 0,
+		 @colorTwo : transparent, 
+		
+		 @hr3: 0, 
+		 @vr3: 0, 
+		 @blur3: 0, 
+		 @spread3: 0,
+		 @colorThree : transparent,
+		
+		 @hr4: 0, 
+		 @vr4: 0, 
+		 @blur4: 0, 
+		 @spread4: 0,
+		 @colorFive : transparent
+		 ) {
+		  
+		  
+		  @val : @hr1 * 1px @vr1 * 1px  @blur1 * 1px @spread1 * 1px @colorOne,
+				 @hr2 * 1px @vr2 * 1px  @blur2 * 1px @spread2 * 1px @colorTwo,
+				 @hr3 * 1px @vr3 * 1px  @blur3 * 1px @spread3 * 1px @colorThree,
+				 @hr4 * 1px @vr4 * 1px  @blur4 * 1px @spread4 * 1px @colorFive;
+		  
+		  
+		  box-shadow: @val;
+			-webkit-box-shadow: @val;
+				
+	}
+	
+	/* Copy this to make it easier
+
+		.mpbs(
+					0,0,0,5,red,
+					0,0,0,10,green,
+					0,0,0,15,yellow,
+					0,0,0,25,blue
+				);
+	
+	*/
+  
+     	.impbs (
+	     @hr1: 0, 
+		 @vr1: 0, 
+		 @blur1: 0, 
+		 @spread1: 0, 
+		 @colorOne : transparent, 
+		 
+		 @hr2: 0, 
+		 @vr2: 0, 
+		 @blur2: 0, 
+		 @spread2: 0,
+		 @colorTwo : transparent, 
+		
+		 @hr3: 0, 
+		 @vr3: 0, 
+		 @blur3: 0, 
+		 @spread3: 0,
+		 @colorThree : transparent,
+		
+		 @hr4: 0, 
+		 @vr4: 0, 
+		 @blur4: 0, 
+		 @spread4: 0,
+		 @colorFive : transparent
+		 ) {
+		  
+		  
+		  @val : @hr1 * 1px @vr1 * 1px  @blur1 * 1px @spread1 * 1px @colorOne,
+				 @hr2 * 1px @vr2 * 1px  @blur2 * 1px @spread2 * 1px @colorTwo,
+				 @hr3 * 1px @vr3 * 1px  @blur3 * 1px @spread3 * 1px @colorThree,
+				 @hr4 * 1px @vr4 * 1px  @blur4 * 1px @spread4 * 1px @colorFive;
+		  
+		  
+		  box-shadow: inset @val;
+			-webkit-box-shadow: inset @val;
+				
+	}
+   
+	/* Copy this to make it easier
+
+		.mpbs(
+					0,0,0,5,red,
+					0,0,0,10,green,
+					0,0,0,15,yellow,
+					0,0,0,25,blue
+				);
+	
+	*/
+	
+	
+	
+	
+	
+/* =============================================================================
+    6.0 - Text Shadow Control
+   ========================================================================== */
+	.ts(@hr: 0, @vr: 0, @blur: 0, @shadowOpacity: .25 ) {
+		@shadow: rgba(0,0,0, @shadowOpacity);
+			@val: @hr * 1px @vr * 1px @blur * 1px @shadow;
+				text-shadow: @val;
+	  
+	  }
+
+	.emts(@hr: 0.04em, @vr: 0.04em, @blur: 0em, @shadowOpacity: .25 ) {
+		@shadow: rgba(0,0,0, @shadowOpacity);
+			@val: @hr * 1em @vr * 1em @blur * 1em @shadow;
+				text-shadow: @val;
+	  
+	 }
+	     
+   
+   
+   
+   
+/* =============================================================================
+    7.0 - Gradient Controls
+   ========================================================================== */
+   
+   .gra2(
+		@direction : top,
+		@colorStart : white,
+		@colorEnd : black
+		
+   ) { 
+   
+	background-color: @colorStart;
+	background-image: linear-gradient(@direction, @colorStart 0%, @colorEnd 100%);
+	background-image: -o-linear-gradient(@direction, @colorStart 0%, @colorEnd 100%);
+	background-image: -moz-linear-gradient(@direction, @colorStart 0%, @colorEnd 100%);
+	background-image: -webkit-linear-gradient(@direction, @colorStart 0%, @colorEnd 100%);
+	background-image: -ms-linear-gradient(@direction, @colorStart 0%, @colorEnd 100%);
+	-pie-background: linear-gradient(@colorStart, @colorEnd);
+	.htc();
+	
+   }
+   
+   .gra3(
+		@direction : top,
+		@colorStart : white,
+		@colorMid : grey,
+		@colorEnd : black
+		
+   
+   ) {
+	background-color: @colorStart;
+	background-image: linear-gradient(@direction, @colorStart 0%, @colorMid 50%, @colorEnd 100%);
+	background-image: -o-linear-gradient(@direction, @colorStart 0%, @colorMid 50%, @colorEnd 100%);
+	background-image: -moz-linear-gradient(@direction, @colorStart 0%, @colorMid 50%, @colorEnd 100%);
+	background-image: -webkit-linear-gradient(@direction, @colorStart 0%, @colorMid 50%, @colorEnd 100%);
+	background-image: -ms-linear-gradient(@direction, @colorStart 0%, @colorMid 50%, @colorEnd 100%);
+	-pie-background: linear-gradient(@colorStart, @colorEnd);
+	.htc();
+	
+	
+   }
+   
+    .gra4(
+		@direction : top,
+		@colorStart : white,
+		@colorPreMid : whitesmoke,
+		@colorMid : grey,
+		@colorEnd : black
+		
+   ) {
+	background-color: @colorStart;
+	background-image: linear-gradient(@direction, @colorStart 0%, @colorPreMid 25%, @colorMid 50%, @colorEnd 100%);
+	background-image: -o-linear-gradient(@direction, @colorStart 0%, @colorPreMid 25%, @colorMid 50%, @colorEnd 100%);
+	background-image: -moz-linear-gradient(@direction, @colorStart 0%, @colorPreMid 25%, @colorMid 50%, @colorEnd 100%);
+	background-image: -webkit-linear-gradient(@direction, @colorStart 0%, @colorPreMid 25%, @colorMid 50%, @colorEnd 100%);
+	background-image: -ms-linear-gradient(@direction, @colorStart 0%, @colorPreMid 25%, @colorMid 50%, @colorEnd 100%);
+	-pie-background: linear-gradient(@colorStart, @colorEnd);
+	.htc();
+	
+   }
+   
+   
+   
+   
+   
+/* =============================================================================
+    8.0 - Object Transform Controls
+   ========================================================================== */   	
+
+	.transform(
+			
+			@rotate : 0deg,
+			
+			@scaleVal : 1.0,
+			
+			@skewX : 0deg,
+			@skewY : 0deg,
+			
+			@translateX : 0px,
+			@translateY : 0px
+			
+	) {
+	
+		@skewXVal : @skewX * 1deg;
+		@skewYVal : @skewY * 1deg;
+	
+		@rotateVal : @rotate * 1deg;
+		
+		@translateXVal : @translateX * 1px;
+		@translateYVal : @translateY * 1px;
+		
+		@theValue : skew(@skewXVal, @skewYVal) scale(@scaleVal) rotate(@rotateVal) translate(@translateXVal, @translateYVal);
+		
+		-webkit-transform: @theValue;
+		   -moz-transform: @theValue;
+				-ms-transform: @theValue;
+					-o-transform: @theValue;
+						transform: @theValue;
+							.transformHTC();
+							
+							 
+							
+
+							
+	}
+
+	/* 
+	
+	.transform(
+	
+	360,
+	1.0,
+	0,0,
+	0,0
+	
+	);
+
+	*/
+	
+	
+	.origin(
+		
+		@x	:	50,
+		@y	:	50
+	
+	) {
+		@params : @x * 1% @y * 1%;
+		
+		transform-origin: @params;
+			-ms-transform-origin: @params;
+				-webkit-transform-origin: @params;
+					-moz-transform-origin: @params;
+						-o-transform-origin: @params;
+	}
+	
+	
+	
+	
+	
+/* =============================================================================
+    9.0 - Transition & Animation Controls
+   ========================================================================== */ 	
+	
+	.transition(
+		@property : all,
+		@length : 0,
+		@easing : ease-in-out,
+		@delay : 0
+	) {
+	
+		@lengthVal : @length * 1s;
+		@delayVal : @delay * 1s;
+	
+		-webkit-transition: @property @lengthVal @easing @delayVal;
+		   -moz-transition: @property @lengthVal @easing @delayVal;
+			 -o-transition: @property @lengthVal @easing @delayVal;
+				-ms-transition: @property @lengthVal @easing @delayVal;
+					transition: @property @lengthVal @easing @delayVal;			
+	}
+	
+	.animate (
+	
+		@name : noName,
+		@duration : 1,
+		@timingFunction : ease,
+		@iterations : 1,
+		@direction : normal,
+		@delay : 0,
+		@playState : running,
+		@fillMode : forwards
+	
+	) {
+		
+		@durationVal : @duration * 1s;
+		@delayVal : @delay * 1s;
+		
+		-webkit-animation-name: @name;
+			-webkit-animation-duration: @durationVal;
+				-webkit-animation-timing-function: @timingFunction;
+					-webkit-animation-iteration-count: @iterations;	
+						-webkit-animation-direction: @direction;
+							-webkit-animation-delay: @delayVal;
+								-webkit-animation-play-state: @playState;
+									-webkit-animation-fill-mode: @fillMode;
+	
+		-moz-animation-name: @name;
+			-moz-animation-duration: @durationVal;
+				-moz-animation-timing-function: @timingFunction;
+					-moz-animation-iteration-count: @iterations;	
+						-moz-animation-direction: @direction;
+							-moz-animation-delay: @delayVal;
+								-moz-animation-play-state: @playState;
+									-moz-animation-fill-mode: @fillMode;
+	
+		-o-animation-name: @name;
+			-o-animation-duration: @durationVal;
+				-o-animation-timing-function: @timingFunction;
+					-o-animation-iteration-count: @iterations;	
+						-o-animation-direction: @direction;
+							-o-animation-delay: @delayVal;
+								-o-animation-play-state: @playState;
+									-o-animation-fill-mode: @fillMode;
+									
+		-ms-animation-name: @name;
+			-ms-animation-duration: @durationVal;
+				-ms-animation-timing-function: @timingFunction;
+					-ms-animation-iteration-count: @iterations;	
+						-ms-animation-direction: @direction;
+							-ms-animation-delay: @delayVal;
+								-ms-animation-play-state: @playState;
+									-ms-animation-fill-mode: @fillMode;
+									
+		animation-name: @name;
+			animation-duration: @durationVal;
+				animation-timing-function: @timingFunction;
+					animation-iteration-count: @iterations;	
+						animation-direction: @direction;
+							animation-delay: @delayVal;
+								animation-play-state: @playState;
+									animation-fill-mode: @fillMode;
+	
+	}
+	
+	
+	
+	
+	
+/* =============================================================================
+    10.0 - Box Alignment Controls (Experimental, beware)
+   ========================================================================== */ 
+   
+   .align( @verticalAlignment, 
+		   @horizontalAlignment, 
+		   @orientation : horizontal 
+	) { 	
+	
+		display: -webkit-box;
+		-webkit-box-orient: @orientation;
+		-webkit-box-pack: @horizontalAlignment;
+		-webkit-box-align: @verticalAlignment;
+
+		display: -moz-box;
+		-moz-box-orient: @orientation;
+		-moz-box-pack: @horizontalAlignment;
+		-moz-box-align: @verticalAlignment;
+
+		display: box;
+		box-orient: @orientation;
+		box-pack: @horizontalAlignment;
+		box-align: @verticalAlignment;
+								
+	}
+
+	.rePos(
+		@positionVal: absolute, @top : none, @right : none, @bottom: none, @left : none
+	) {
+		
+		position: @positionVal;
+		
+		top: @top;
+		right: @right;
+		bottom: @bottom;
+		left: @left;
+	}
+
+
+	
+/* =============================================================================
+    11.0 - Box Model Controls
+   ========================================================================== */ 	
+	
+/* =============================================================================
+   Flex Box Control
+   ========================================================================== */   
+   
+   .flex( @val : 1 ) {
+	-webkit-box-flex: @val;
+	   -moz-box-flex: @val;
+	        box-flex: @val;
+   }
+   
+/* =============================================================================
+   Box Sizing
+   ========================================================================== */   
+
+   .boxType(@boxType : border-box) {
+		-webkit-box-sizing: @boxType; /* Safari/Chrome, other WebKit */
+			-moz-box-sizing: @boxType;    /* Firefox, other Gecko */
+				box-sizing: @boxType;         /* Opera/IE 8+ */
+   }
+
+/* =============================================================================
+   Turn Into Box
+   ========================================================================== */ 
+   
+   .box( @orient : horizontal) { 
+		display: -webkit-box;
+			display: -moz-box;
+				display: -ms-box;
+					display: -o-box;
+						display: box;
+						
+		-webkit-box-orient: @orient;
+			-moz-box-orient: @orient;
+				-o-box-orient: @orient;
+					-ms-box-orient: @orient;
+						box-orient: @orient;
+				
+		-webkit-box-pack: center;
+			-moz-box-pack: center;
+				-o-box-pack: center;
+					-ms-box-pack: center;
+						box-pack: center;
+						
+   }
+   
+/* =============================================================================
+   Box Ordering
+   ===========================================================================*/ 
+   
+   .order ( @order : 0 ) {
+	   -webkit-box-ordinal-group: @order;
+			-moz-box-ordinal-group: @order;
+				-ms-box-ordinal-group: @order;
+					-o-box-ordinal-group: @order;
+						box-ordinal-group: @order;
+   }
+   
+   
+   
+   
+   
+/* =============================================================================
+    12.0 - Typography Controls
+   ========================================================================== */ 	
+	
+	@lineHeight : 1.68em;
+   
+   .justify(
+   
+    ) {
+		line-height: @lineHeight;
+		margin: 1.25em 0;
+		text-align: justify;
+		clear: both;
+	}
+	
+	
+   .elevatedCap (
+		@backgroundColor : transparent,
+		@fontSize : 3.5em,
+		
+	) {
+		font-size: @fontSize;
+		line-height: @lineHeight;
+		background-color: @backgroundColor;
+	}
+   
+   .dropCap (
+		@backgroundColor : transparent
+   ) {
+	font-size: 3.5em;
+	line-height: @lineHeight;
+	font-weight: 400;
+	float: left;
+	margin: 0.15em 0.2em 0.08em 0;
+	background-color: @backgroundColor;
+   }
+   
+   .outdentCap (
+		@backgroundColor : transparent
+   ) {
+	font-size: 8em;
+	line-height:  @lineHeight;
+	font-weight: 400;
+	float: left;
+	margin: .1em 0.2em 0.08em -0.1em;
+	background-color: @backgroundColor;
+   }
+   
+   .flbolded() { 
+    font-weight: 800;
+	font-variant: small-caps; 
+	}
+  
+	.hyphenate(@type : auto) {
+		-webkit-hyphens: @type;
+			-moz-hyphens: @type;
+				hyphens: @type;
+	}
+  
+  
+  
+  
+  
+/* =============================================================================
+   Font Size Control
+   ========================================================================== */
+	.fs( @fontsize : 0rem, @lheight : @lineHeight) {
+		@val : @fontsize * 1rem;
+		font-size: @val;
+		line-height: @lheight;
+	}
+   
+   
+/* =============================================================================
+   Font Family Control
+   ========================================================================== */ 
+   
+   .ff( 
+	@font1		:	Cambria	
+	, @font2	:	Georgia
+	, @font3	:	Garamond
+	, @font4	:	"Times New Roman"
+	, @fallback : 	serif
+   
+   ){
+   
+	font-family: @font1, @font2, @font3,@font4, @fallback;
+   
+   
+   }
+   
+/* =============================================================================
+   Typo Micros
+   ========================================================================== */ 
+    
+   .caps() { text-transform : uppercase; }	
+	
+   .wsp( @whiteSpaceValue : normal ) { white-space: @whiteSpaceValue; }
+   
+   
+  /* =============================================================================
+   Awesome Ampersans
+   ========================================================================== */  
+	.amp {
+		font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+			font-style: italic;
+				font-weight: normal;
+	}
+	
+	
+	
+	
+	
+/* =============================================================================
+    13.0 - Padding & Margin Controls
+   ========================================================================== */ 
+	
+	.p( @val1: 0, @val2 : 0) {		
+		padding: @val1 * 1px @val2 * 1px;
+    }
+	 
+   .xp( @top : 0, @right : 0, @bottom : 0, @left : 0 ) {
+		padding: @top * 1px @right * 1px @bottom * 1px @left * 1px;
+    }
+	
+	
+	.m( @val1 : 0, @val2 : 0) {		
+		margin: @val1 * 1px @val2 * 1px;
+    }
+	
+	 .xm( @top : 0, @right : 0, @bottom : 0, @left : 0 ) {
+		margin: @top * 1px @right * 1px @bottom * 1px @left * 1px;
+    }
+
+	
+	
+	
+	
+	
+/* =============================================================================
+    14.0 - Background Color Controls
+   ========================================================================== */ 
+ 
+	.bg(
+		@color : white,
+		@opacity : 1.0
+   ) {
+	background-color: @color;
+	opacity: @opacity;
+   }  
+	  
+	.rgbaBg(
+		@red : 0,
+		@green : 0,
+		@blue : 0,
+		@alpha : 1.0
+   ) {
+	background: rgba(@red,@green,@blue,@alpha);
+   }
+   
+   
+   
+   
+   
+ /* =============================================================================
+   15.0 - Image Load In Helper by someone I can't remember
+   ========================================================================== */
+ 
+    .png(@img: "", @width: 0px, @height: 0px, @color: " ", @repeat: "no-repeat", @x: "0", @y: "0", @att: " ") {
+      background: e(%("%s", @color)) e(%("url(%s%s.png)", @path, @img)) e(%("%s", @repeat)) e(%("%s", @att)) e(%("%s", @x)) e(%("%s", @y));
+	  
+	  width: @width;
+	  height: @height;
+	  
+	  }
+
+	.jpg(@img: "", @width: 0px, @height: 0px, @color: " ", @repeat: "no-repeat", @x: "0", @y: "0", @att: " ") {
+      background: e(%("%s", @color)) e(%("url(%s%s.jpg)", @path, @img)) e(%("%s", @repeat)) e(%("%s", @att)) e(%("%s", @x)) e(%("%s", @y));
+	  
+	  width: @width;
+	  height: @height;
+	  
+	  }
+	
+	.gif(@img: "", @width: 0px, @height: 0px, @color: " ", @repeat: "no-repeat", @x: "0", @y: "0", @att: " ") {
+      background: e(%("%s", @color)) e(%("url(%s%s.gif)", @path, @img)) e(%("%s", @repeat)) e(%("%s", @att)) e(%("%s", @x)) e(%("%s", @y));
+	  
+	  width: @width;
+	  height: @height;
+	  
+	  }
+
+	  
+	  
+
+	  
+ /* =============================================================================
+     16.0 Multiple Columns Controls (Advanced Grid System)
+   ========================================================================== */
+   
+   .toGrid(
+   
+   
+   ) {
+   
+	display: -webkit-grid;
+	  display: -moz-grid;
+		display: -o-grid;
+			display: -ms-grid;
+				display: grid;
+			
+				-webkit-grid-columns: 15px 1fr; 	
+					-moz-grid-columns: 15px 1fr; 	
+						-ms-grid-columns: 15px 1fr; 	
+							-o-grid-columns: 15px 1fr; 	
+								grid-columns: 15px 1fr; 
+	
+				-webkit-grid-rows: 15px 15px; 	
+					-moz-grid-rows: 15px 15px; 	
+						-ms-grid-rows: 15px 15px; 	
+							-o-grid-rows: 15px 15px; 	
+								grid-rows: 15px 15px;
+				
+   }
+   
+   
+  
+   
+   .col(
+   
+	@colAmount : 0
+	,@colGap : 1em
+	,@colRule : 1px transparent #333
+	,@colWidth: 0px
+	
+	
+	) {
+		
+		@colWidthValue : @colWidth * 1px;
+		
+		
+		/* Column Amount */
+		
+		-moz-column-count: @colAmount;
+			-webkit-columns: @colAmount;
+				-o-columns: @colAmount;
+					-ms-columns: @colAmount;
+						columns: @colAmount;
+   
+   
+   
+		
+		/* Column Width */
+		
+		-moz-column-width: @colWidthValue;
+			-webkit-column-width: @colWidthValue;
+				-o-column-width: @colWidthValue;
+					-ms-column-width: @colWidthValue;
+						column-width: @colWidthValue;
+		
+   
+   
+		/* Column Gap */
+		
+		-moz-column-gap: @colGap;
+			-webkit-column-gap: @colGap;
+				-o-column-gap: @colGap;
+					-ms-column-gap: @colGap;
+						column-gap: @colGap;
+   
+   
+   
+		/* Column Rule */
+   
+		-webkit-column-rule: @colRule;
+			-moz-column-rule: @colRule;
+				column-rule: @colRule;
+   
+   
+   
+   
+   
+   
+   
+   
+   }
+   
+   .breakBefore(
+   
+	@breakValue : always
+   
+   ) {
+   
+	-webkit-column-break-before:@breakValue;
+		-moz-column-break-before:@breakValue;
+			-o-column-break-before:@breakValue;
+				-ms-column-break-before:@breakValue;
+					column-break-before:@breakValue;
+   }
+   
+   
+   .colSpan(
+   
+	@span : 0
+   
+   ) {
+   
+	-webkit-column-span: @span;
+		-moz-column-span: @span;
+			-o-column-span: @span;
+				-ms-column-span: @span;
+					column-span: @span;
+   }
+   
+   .colFill(
+   
+	@fill : auto
+   
+   ) {
+   
+	-webkit-column-fill:@fill;
+		-moz-column-fill:@fill;
+			-o-column-fill:@fill;
+				-ms-column-fill:@fill;
+					column-fill:@fill;
+   
+   }
+
+  
+
+
+/* =============================================================================
+    17.0 - Sizing Controls
+   ========================================================================== */
+
+/* =============================================================================
+   Fluid Sizes
+   ========================================================================== */	
+   
+   
+		.fluid (
+			    @width: 100%,
+			    @height: 100%
+		)		
+		
+		{ width: @width; height: @height; }
+
+		
+		.fluidWidth { width: 100%; }
+
+		.fluidHeight { height: 100%; }
+
+		.halfWidth { width: 50%; }
+		
+		.w ( @val : 0 ) {
+			@preCalc: @val * 1px;
+			width: @preCalc;			
+		}
+	
+		.h ( @val : 0 ) {
+			@preCalc: @val * 1px;
+			height: @preCalc;			
+		}
+		
+		.w100p { width: 100%; }
+		
+		.w75p { width: 75%; }
+		
+		.w65p { width: 65%; }
+		
+		.w45p { width: 45%; }
+		
+		.w25p { width: 25%; }
+		
+		.h75p() { height: 75%; }
+		
+		.h25p() { height: 25%; }
+		
+		
+		.thirdWidth { width: 33.3% }
+		
+		.halfHeight { height: 50%; }
+		
+		.thirdHeight { height: 33.3% }
+	
+		
+	
+		
+
+/* =============================================================================
+   Fixed Sizes
+   ========================================================================== */	
+   
+		.w960 { width: 960px; }
+   
+   
+   /* =============================================================================
+   Full Cover
+   ========================================================================== */
+   
+   .isScalable() {
+   
+		-webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+		overflow-y: hidden;
+   
+   }
+   
+   /* =============================================================================
+   Sticky Fixed Footer
+   ========================================================================== */
+	.stickyFixedFooter (
+		@height : 50px,
+		@width : 960px,
+		@bgColor : whitesmoke
+	)
+
+
+	{	
+		background: none repeat scroll 0 0 @bgColor;
+		bottom: 0;
+		height: @height;
+		left: 50%;
+		margin: 0 auto 0 -490px;
+		padding: 0 10px;
+		position: fixed;
+		width: @width;
+    
+	}
+   
+ /* =============================================================================
+   Sticky Fixed Header
+   ========================================================================== */
+	.stickyFixedHeader (
+		@height : 50px,
+		@width : 960px,
+		@bgColor : whitesmoke
+	)
+
+
+	{	
+		background: none repeat scroll 0 0 @bgColor;
+		top: 0;
+		height: @height;
+		left: 50%;
+		margin: 0 auto 0 -490px;
+		padding: 0 25px;
+		position: fixed;
+		width: @width;
+    
+	}
+
+
+  
+
+/* =============================================================================
+    EX.0 - Extra Controls
+   ========================================================================== */ 	
+	
+	.devMode() { border: 1px dotted #333; }
+	
+	.htc(){ 
+		behavior: url(leaves/PIE.htc); 
+	}
+	
+	.transformHTC() {
+		behavior: url(leaves/-ms-transform.htc)
+	}
+	
+	
+    .modernHR (
+   
+	@borderTopColor : #C9C9C9,
+	@backgroundColor : white
+   
+   ) {
+	display: block;
+	height: 1px;
+	border: 0;
+    border-top: 1px solid @borderTopColor;
+	background: @backgroundColor;
+	margin: 25px 0;
+	padding: 0;
+   }
+  
+   .vr (
+	
+		  @borderColor : transparent
+		, @lineColor : transparent
+		, @contentAlignment : middle
+	
+	) {
+		display: inline-block;
+		background-color: @lineColor;
+		border-left: 1px solid @borderColor;
+		width: 1px;
+		content: "";
+		height: 100%;
+		vertical-align: @contentAlignment;
+	}
+
+	
+ 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

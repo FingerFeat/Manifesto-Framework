@@ -1,0 +1,839 @@
+﻿	@import "reset";
+	@import "fonts/fonts";
+	@import "spine";
+
+/* =============================================================================
+   [#0] Table Of Contents
+   
+   Manifesto Framework - Curated by Anders Schmidt Hansen
+   
+   Connect: http://twitter.com/#!/Lichine
+   Website: http://andersschmidt.com
+   
+   Quick-jump to Chapters: 
+   
+   [#1] - Base Rules
+   [#2] - Layout Rules
+   [#3] - Modules Rules
+   [#4] - State Rules
+   [#5] - Typography Rules
+   [#6] - Media Query Rules
+   [#7] - Print Rules
+   
+   ========================================================================== */
+
+
+
+
+
+
+
+
+/* =============================================================================
+   [#1] Chapter: Base Rules
+   
+   Part of: Manifesto Framework Core
+   ========================================================================== */
+
+/* ====================
+   Default Image Path (for use with .jpg, .png and .gif)
+   ==================== */ 
+   @path: "../img/";
+	
+   
+/* ====================
+   devMode - Uncomment to unleash
+   ==================== */ 
+      
+		/*
+			* { .devMode; }
+		*/
+ 
+/* ====================
+   Site Color Palette
+   ==================== */ 
+   
+   @c1		: #333;	
+   @c2 		: #FFF;	
+   @c3 		: #333;
+   @c4 		: #333;
+   @c5 		: #333;
+   
+   
+	
+	
+/* ===========================
+   Link State Colors
+   =========================== */ 
+   
+   @hoverCol	:	#F7D683;
+   @activeCol 	:	#F7D683;
+   @visitedCol 	:	#F7D683;
+   
+   	
+/* ===========================
+   Selection
+   =========================== */ 
+   
+   ::selection {
+        background: #FA6900; /* Safari */
+        }
+	::-moz-selection {
+        background: #FA6900; /* Firefox */
+	}
+   
+   
+/* ====================
+   HTML & Body Styles
+   ==================== */ 
+
+   html {
+		height: 100%; 
+			width: 100%;	
+				overflow-x: hidden;
+					background: gold;
+   }
+   
+   body {
+	color: red;
+   }
+   
+    
+	
+	
+/* ====================
+   General Link Styles
+   ==================== */ 		
+
+	a {
+		color: @c1;
+			
+			&:active { 
+				color: @c1; 
+			}
+					&:visited {	
+						color: @c1; 
+					}		
+							&:hover {
+							}
+	}
+
+/* ====================
+   Navigational Links
+   ==================== */ 	
+	
+   	nav a {
+
+		&:active { 
+				color: @c1; 
+			}
+					&:visited {	
+						color: @c1; 
+					}
+							&:hover {
+							
+							}
+	}
+
+
+	   
+/* ====================
+   Header
+   ==================== */    
+   
+   header {
+			
+   }
+   
+   
+/* ====================
+   Logo
+   ==================== */
+   
+   #logo {
+	
+   }
+
+   
+/* ====================
+   Navigation
+   ==================== */ 
+   
+   nav {
+	
+	
+   }
+   
+
+/* ====================
+   Content
+   ==================== */    
+   
+   #content {
+		
+   
+   }
+   
+   
+ /*====================
+   Footer
+   ==================== */    
+   
+   footer {
+
+   
+   }
+   
+
+
+ /*====================
+   Custom
+   ==================== */ 
+   
+
+   
+   
+   
+   
+   
+   
+   
+   
+/* =============================================================================
+   [#2] Chapter: Layout Rules
+   
+   Conventions: Single ID or Class Name per Rule.
+   
+   Prefix used: ".l-"
+   
+   Part of: Manifesto Framework Core
+   ========================================================================== */
+   
+   .l-full {
+
+   }
+   
+   .l-half {
+
+   }
+   
+   .l-quarter {
+		
+   }
+ 
+   
+   
+
+
+   
+   
+   
+   
+   
+
+
+
+
+
+   
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/* =============================================================================
+   [#3] Chapter: Modules Rules
+   
+   Conventions: Each Module should be designed to exist as a standalone component.
+   
+   Prefix used: None.
+   
+   Part of: Manifesto Framework Core
+   ========================================================================== */
+   
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/* =============================================================================
+   [#4] Chapter: State Rules
+   
+   Conventions: Describe how our modules or layouts will look when in a 
+				particular state.
+   
+   Prefix used: ".is-"
+   
+   Part of: Manifesto Framework Core
+   ========================================================================== */
+   
+   
+   
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/* =============================================================================
+   [#5] Chapter: Typography
+    
+   Part of: Starting Point Framework Core
+   ========================================================================== */
+	
+	
+	/* Typographic Settings
+	=======================================*/
+	
+	@idealTextSize: 1.618rem;
+	@importantNumber: @idealTextSize * 0.87515451;
+	@goldenRatio: 1.618rem;
+	@leadMultiplier: 1.145544;
+	
+	
+	@baseFontFamily: Cambria, Georgia, Garamond, "Times New Roman", serif;
+	@headerFontFamily: Cambria, Georgia, Garamond, "Times New Roman", serif;
+	
+	
+	@ornament: "";
+	
+	/*=====================================*/
+	
+	
+	
+	
+	
+	
+	 
+	
+	
+	
+	
+	
+	
+	
+	/* No actual need to set anything here
+	=======================================*/
+	
+	html {
+		font-size: 62.5%;		
+	}
+   
+   
+	body, button, input, select, textarea { 
+		
+		.ff(
+			@baseFontFamily
+		); 
+	}	
+	
+	h1, h2, h3, h4, h5, h6 {
+		
+		.ff(
+			 @headerFontFamily
+		);
+		
+	}
+	
+	body {
+		font-size: normal 16px; font-size: normal @idealTextSize;
+	}
+	
+	h1, h2, h3, h4, h5, h6, p {
+		margin-bottom: 24px; margin-bottom: @goldenRatio;
+	}
+	
+	body, p { 
+		line-height: 1.68; line-height: @magicNumberCalc;
+	}
+	
+	.lead {
+		font-size: @leadCalc;
+			line-height: @leadLhCalc;
+	}
+
+	h1 	{ 
+		font-size: 68px; font-size: @h1Calc; 
+		line-height: 11px; line-height: @h1lhCalc; 
+	}
+	
+	h2 	{ 
+		font-size: 60px; font-size: @h2Calc; 
+		line-height: 11px; line-height: @h2lhCalc; 
+	}	
+	
+	h3 	{ 
+		font-size: 42px; font-size: @h3Calc; 
+		line-height: 11px; line-height: @h3lhCalc; 
+	}
+	
+	h4 	{ 
+		font-size: 37px; font-size: @h4Calc; 
+		line-height: 11px; line-height: @h4lhCalc; 
+	}	
+	
+	h5 	{ 
+		font-size: 26px; font-size: @h5Calc; 
+		line-height: 11px; line-height: @h5lhCalc; 
+	}
+	
+	h6 	{ 
+		font-size: 23px; font-size: @h6Calc; 
+		line-height: 11px; line-height: @h6lhCalc; 
+	}
+		
+	p 	{ 
+	
+	font-size: 16px; font-size: @idealTextSize; 
+	
+		max-width: 464px; max-width: @pwidthCalc; /* Set to reflect approximately 66 characters per line. */
+		margin-bottom: 23px; margin-bottom: @magicNumberCalc;	
+		
+			
+		&:first-letter {  
+		
+		}
+					
+		&:first-line {  
+		
+		}
+	}
+	
+	p+p {
+		text-indent: @idealTextSize;
+			@minusMagicNumber: ~`'-'+"@{magicNumberCalc}"`;
+				margin-top: @minusMagicNumber;
+				
+		&:before {
+			content: @ornament;
+				padding-right: 0.4rem;
+					margin-top: 0;
+		}
+	}
+	
+	
+	
+	
+/* =============================================================================
+   Leave: Semi-Automatic Golden Ratio Typographic Scaler
+   
+   Note: Don't change anything here, or you'll be pretty sorry.
+	
+   Part of: Starting Point Framework Core
+   ========================================================================== */
+	
+	@h1Calc: @h3Calc * @goldenRatio;
+	@h2Calc: @h4Calc * @goldenRatio;
+	@h3Calc: @h5Calc * @goldenRatio;
+	@h4Calc: @h6Calc * @goldenRatio;
+	@h5Calc: @idealTextSize * @goldenRatio;
+	@h6Calc: @importantNumber * @goldenRatio;
+	
+	@h1lhCalc: @h1Calc * @goldenRatio;
+	@h2lhCalc: @h2Calc * @goldenRatio;
+	@h3lhCalc: @h3Calc * @goldenRatio;
+	@h4lhCalc: @h4Calc * @goldenRatio;
+	@h5lhCalc: @h5Calc * @goldenRatio;
+	@h6lhCalc: @h6Calc * @goldenRatio;
+	
+	@magicNumberCalc: @idealTextSize * @goldenRatio;
+	@pwidthCalc: @idealTextSize * @goldenRatio * 18;
+	@leadCalc: @idealTextSize * @leadMultiplier;
+	@leadLhCalc: @leadCalc * (@magicNumberCalc / @importantNumber);
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/* =============================================================================
+   [#6] Chapter: Media Query Rules
+   
+   Part of: Manifesto Framework Core
+   ========================================================================== */
+
+
+
+	@media only screen and (min-width: 480px) {
+
+
+	}
+
+	@media only screen and (min-width: 768px) {
+
+	}
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/* =============================================================================
+   [#7] Chapter: Print Rules
+   
+   Part of: Manifesto Framework Core
+   ========================================================================== */
+   
+	@media print {
+		  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } 
+		  a, a:visited { text-decoration: underline; }
+		  a[href]:after { content: " (" attr(href) ")"; }
+		  abbr[title]:after { content: " (" attr(title) ")"; }
+		  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } 
+		  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+		  thead { display: table-header-group; }
+		  tr, img { page-break-inside: avoid; }
+		  img { max-width: 100% !important; }
+		  @page { margin: 0.5cm; }
+		  p, h2, h3 { orphans: 3; widows: 3; }
+		  h2, h3 { page-break-after: avoid; }
+	}
+   
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

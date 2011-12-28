@@ -1,0 +1,144 @@
+
+
+		  _____ ______
+		_/      Y      \_
+	   // ~~ ~~ | ~~ ~  \\
+	  // ~ ~ ~~ | ~~~ ~~ \\      Manifesto - An alternative, modular web framework
+	 //________.|.________\\     Created & Curated by Anders Schmidt Hansen // Lichine
+	`----------`-'----------'
+	
+
+
+	
+	What is it?
+	-----------
+	
+	Manifesto is a web development / web design framework catered towards
+	my personal workflow. I've spent a lot of time (and continue doing so)
+	with improving it and getting it up to the bleeding edge of web
+	craftsmanship philosophies and practices. It is built upon the foundation
+	of Poul Irish et. als magnificent HTML5 Boilerplate, which is automatically
+	built to work with jQuery and is generally a great starting point for
+	anyone serious about developing and designing for the web. I just needed more,
+	much more. So I extended the boilerplate with LESS.js, researched my ass off
+	about how LESS can be manipulated into being a complete CSS3 powerhouse, 
+	resulting in a LESS core framework (within this framework) that holds numerous
+	nice little helper functions for a cross-browser crafting experience.
+	
+	The CSS has been architectured according to the principles of Jonathan Snook,
+	which he describes as SMACSS (http://smacss.com/). I have taken this idea a
+	bit to the extreme, would some say (at least I think), but like I said, 
+	this is a framework made for myself that I want to share and further develop.
+	
+	Finally, I have introduced extended Snook's SMACSS methodology with a
+	metaphorical approach. This approach is I call "The Author & The Manifest",
+	which is simply arranging the folder structure and LESS structure as if you,
+	the developer/designer, were an author of a book called "Your Current Project".
+	This approach has really helped me focus on the tasks at hand and keeping many
+	elements very organized and very modular.
+	
+	I hope you will find this framework interesting and maybe even helpful as it has
+	helped me a lot already. Thank you for playing around with it and please constructively
+	criticize it, so I can improve it even further.
+	
+															-- Anders Schmidt Hansen
+	
+	
+	
+		
+	Why use it?
+	-----------
+	
+	Well, no reason really. You're a professional, and professionals
+	are capable of choosing between alternatives. Manifesto is one
+	of many and may not be right for you. For me, it helps tremendously 
+	and my clients and colleagues are happy much higher development speed
+	and well-organized, modular structure.
+	
+	
+	
+	The Latest Version
+	------------------
+
+	Current: "Tiny Temper"
+	
+	Notes: I'm cleaning up stuff, and it is still a little messy here and there
+		   so try not to go crazy over it.
+	
+	Details of the latest version can be found on GitHub at
+	this location: http://goo.gl/WvYjn.
+	
+	
+
+	Documentation
+	-------------
+
+	Since I'm a student I don't have loads of time to write lengthy documentations.
+	This framework is minded to the intermediate or advanced web craftsman who
+	knows his/her way around front-end coding and design. I will try to document as much
+	as I can, but for now, play around, try it out and see how it goes.
+
+	
+	
+	Installation
+	------------
+
+	Download the .zip file, unpack and upload to your the location of your web project.
+	If you're teamed up with a developer using e.g. CodeIgniter, you should move scripts
+	to the master file's head area, especially if you're in an .ASP environment. Consult
+	with your developer about proper implementing LESS.
+	
+	As far as for the LESS structure goes, you should not have to change anything there.
+	It is structured according to SMACSS, so please read about this architecture first at
+	http://smacss.com/. With this in mind you only need to know the following: 
+	
+		I.	Imagine that you are actually writing the Chapters of what defines your web project.
+			This is why every .less file you will work within is found in the Chapters folder.
+			So if you are ready to define the project's overall Typographic style, you would open
+			typography.less and write that Chapter.
+			
+		II. Additional, extra, "plugin" .less files are called Leaves and are found in the Leaves
+			folder. Leaves are elements you load in AFTER you've defined all the base stylings.
+			For me, I create various Leaves for very custom form element designs and the likes.
+			So Leaves can easily be used to create packs of stylings that gives your project a
+			unique twist. Oh, and share your Leaves with others, that would be awesome.
+			
+		III. All Chapters and Leaves are loaded in and managed in the "content.less" file. To
+			 keep it organized, import your Leaves after your Chapters. This also reduces the
+			 risk of overlapping styles.
+			 
+		IV.  Have fun and stay awesome. Keep being visionaries of the future web. It may be
+			 Manifesto, it may be something completely else. Just as long as we push forward 
+			 and never stop dreaming!
+			 
+
+	
+	
+	
+	Licensing
+	---------
+
+	Manifesto is free to use and play around with, but please don't try to sell it
+	as this framework, ultimately, is built by combining frameworks made by others
+	and tailored to the need of an individual.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

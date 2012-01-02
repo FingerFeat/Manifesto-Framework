@@ -9,22 +9,12 @@
 '============================================================================'
 */
 
-
-$(document).ready(function(){
+$(document).ready(function(){	
 	if (!Modernizr.input.placeholder)
 	{
-	$.ajax({
-		type: "GET",
-	   	url: "plugins.js",
-	  	dataType: "script",
-	  	success: function()
-	  	{
-	  		$('input').example(function() {
+	$('input').example(function() {
 				return $(this).attr('placeholder');
 			});
-	  	}
-	});
 	}
 });
-
 

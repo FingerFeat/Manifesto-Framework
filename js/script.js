@@ -2,8 +2,6 @@
 
 */
 
-var $pluginsURL : 'plugins.js';
-
 
 /*
 .============================================================================.
@@ -11,12 +9,13 @@ var $pluginsURL : 'plugins.js';
 '============================================================================'
 */
 
+
 $(document).ready(function(){
 	if (!Modernizr.input.placeholder)
 	{
 	$.ajax({
 		type: "GET",
-	   	url: $pluginsURL,
+	   	url: "plugins.js",
 	  	dataType: "script",
 	  	success: function()
 	  	{

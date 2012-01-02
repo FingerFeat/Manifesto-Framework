@@ -27,6 +27,7 @@
 		15.0 - Image Load In Helper by someone I can't remember
 		16.0 - Multiple Columns Controls
 		17.0 - Sizing Controls
+		18.0 - Filter Effects
 		
 		EX.0 - Extra Controls
    
@@ -1131,7 +1132,35 @@
     
 	}
 
+/* =============================================================================
+    18.0 - Filter Effects
+   ========================================================================== */ 
+  
+	.filter(
+		@blur: 2px,
+		@grayscale: .5,
+		@opacity: .8,
+		@sepia: 100%,
+		@saturate: 9,
+		@hue-rotate: 120deg	
+	)
 
+	{
+		filter: blur(@blur * 1px) grayscale (@grayscale) opacity(@opacity) sepia(@sepia * 1%) saturate(@saturate) hue-rotate(@hue-rotate * 1deg);
+	
+		-webkit-filter: blur(@blur * 1px) grayscale (@grayscale) opacity(@opacity) sepia(@sepia * 1%) saturate(@saturate) hue-rotate(@hue-rotate * 1deg);
+		
+		-moz-filter: blur(@blur * 1px) grayscale (@grayscale) opacity(@opacity) sepia(@sepia * 1%) saturate(@saturate) hue-rotate(@hue-rotate * 1deg);
+		
+		-o-filter: blur(@blur * 1px) grayscale (@grayscale) opacity(@opacity) sepia(@sepia * 1%) saturate(@saturate) hue-rotate(@hue-rotate * 1deg);
+	}
+  
+  
+  
+  
+  
+  
+  
   
 
 /* =============================================================================

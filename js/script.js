@@ -2,11 +2,30 @@
 
 */
 
-/* Twitter */
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-
-/* Twitter */
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+var $pluginsURL : 'plugins.js';
 
 
-$('.letteringTest').lettering();
+/*
+.============================================================================.
+	1. Add placeholder text to IE inputs
+'============================================================================'
+*/
+
+$(document).ready(function(){
+	if (!Modernizr.input.placeholder)
+	{
+	$.ajax({
+		type: "GET",
+	   	url: $pluginsURL,
+	  	dataType: "script",
+	  	success: function()
+	  	{
+	  		$('input').example(function() {
+				return $(this).attr('placeholder');
+			});
+	  	}
+	});
+	}
+});
+
+

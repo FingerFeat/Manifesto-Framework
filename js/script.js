@@ -10,11 +10,8 @@
 */
 
 $(document).ready(function(){	
-	if (!Modernizr.input.placeholder)
-	{
-	$('input').example(function() {
-				return $(this).attr('placeholder');
-			});
-	}
+
+	$('input, textarea').placeholder();
+
 });
 
